@@ -1,3 +1,4 @@
+import { ESTUDANTES } from './../mock-students';
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from './../estudante';
 
@@ -9,17 +10,16 @@ import { Estudante } from './../estudante';
 })
 export class EstudantesComponent implements OnInit {
 
-  estudante: Estudante = {
-    RA: 0,
-    name: 'Igor Guilherme',
-    age: 20,
-    course:'Análise e Desenvolvimento de Sistemas',
-    institution:'Fatec Itu'
-  };
+  listaEstudantes = ESTUDANTES;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectedStudent?: Estudante;
+  onSelect(estudante: Estudante): void {
+    this.selectedStudent = estudante ;
   }
 
 }

@@ -1,31 +1,23 @@
-<h3>Preview</h3>
-<h2>{{estudante.name | uppercase}} Details</h2>
-<br>
-<div><span>RA: </span> {{estudante.RA}}</div>
-<div><span>Name: </span> {{estudante.name}}</div>
-<div><span>Age: </span> {{estudante.age}}</div>
-<div><span>Course: </span> {{estudante.course}}</div>
-<div><span>Instituion: </span> {{estudante.institution}}</div>
+<div *ngIf="selectedStudent">
 
-<br><br>
-<h3>Register</h3>
-<div>
-    <label for="RA">RA: </label>
-    <input id="RA" [(ngModel)]="estudante.RA" placeholder="RA">
-</div>
-<div>
-    <label for="name">Name: </label>
-    <input id="name" [(ngModel)]="estudante.name" placeholder="name">
-</div>
-<div>
-    <label for="age">Age: </label>
-    <input id="age" [(ngModel)]="estudante.age" placeholder="age">
-</div>
-<div>
-    <label for="course">Course: </label>
-    <input id="course" [(ngModel)]="estudante.course" placeholder="course">
-</div>
-<div>
-    <label for="institution">Institution: </label>
-    <input id="institution" [(ngModel)]="estudante.institution" placeholder="instituion">
-</div> 
+    <h2>{{selectedStudent.name | uppercase}} Details</h2>
+    <div><span>RA: </span>{{selectedStudent.RA}}</div>
+    <div><span>Idade: </span>{{selectedStudent.age}}</div>
+    <div><span>Curso: </span>{{selectedStudent.course}}</div>
+    <div><span>Instituição: </span>{{selectedStudent.institution}}</div>
+
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="selectedStudent.name" placeholder="name">
+    </div>
+  
+  </div>
+  
+    <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let student of listaEstudantes"
+      [class.selected]="student === selectedStudent"
+      (click)="onSelect(student)">
+      <span class="badge">{{student.RA}}</span> {{student.name}}
+    </li>
+  </ul>
