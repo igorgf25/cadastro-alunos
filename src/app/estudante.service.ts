@@ -19,4 +19,11 @@ export class EstudanteService {
     this.messageService.add('EstudanteService: fetched estudantes');
     return estudantes;
   }
+
+  getEstudante(RA: number): Observable <Estudante>
+  {
+    const estudante = ESTUDANTES.find(h => h.RA === RA) as Estudante;
+    this.messageService.add(`EstudanteService: fetched student RA= ${RA}`);
+    return of(estudante);
+  }
 }

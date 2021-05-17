@@ -1,5 +1,4 @@
 import { MessageService } from './../message.service';
-import { MessagesComponent } from './../messages/messages.component';
 import { EstudanteService } from './../estudante.service';
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from './../estudante';
@@ -23,12 +22,6 @@ export class EstudantesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudents();
-  }
-
-  selectedStudent?: Estudante;
-  onSelect(estudante: Estudante): void {
-    this.selectedStudent = estudante ;
-    this.messageService.add('MessagesService: Selected student RA=${estudante.RA}'); 
   }
 
 }
